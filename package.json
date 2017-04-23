@@ -1,0 +1,26 @@
+{
+  "name": "chat-command",
+  "version": "0.0.1",
+  "description": "Api for chat commands to be used by Twitch bots",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/srv-cli/build/srv app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinRodal/chat-command.git"
+  },
+  "author": "Kevin Rodal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KevinRodal/chat-command/issues"
+  },
+  "homepage": "https://github.com/KevinRodal/chat-command#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "eslint": "^3.19.0",
+    "node-cache": "^4.1.1",
+    "request": "^2.81.0",
+    "srv-cli": "^0.3.4"
+  }
+}
