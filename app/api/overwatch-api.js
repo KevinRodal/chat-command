@@ -1,8 +1,9 @@
 const rp = require('request-promise');
+const config = global.config;
 
 export default function(platform, region, tag, cb) {
 
- 	const url =  `http://localhost:3000` + `/stats/${platform}/${region}/${tag}/json`;
+ 	const url =  global.config.overwatch_api_url + `/stats/${platform}/${region}/${tag}/json`;
 
   	const options = {
     	uri: encodeURI(url),

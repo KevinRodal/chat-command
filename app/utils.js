@@ -1,4 +1,19 @@
 module.exports = {
+
+	loadConfigIntoGlobal: function(){
+		var args = process.argv;
+		var configFile = './config/production.config';
+		for(var i = 0; i < args.length; ++i) {
+			if(args[i].includes('--conf') && i != (args.length - 1)) {
+				configFile = args[i+1];
+				break;
+			}
+		}
+		var jsonfile = require('jsonfile');
+		jsonfile.readFile(configFile, function(err, obj) {
+			global.config = obj;
+		});
+	},
 	
 	getRandomInt: function(min, max) {
 		min = Math.floor(min);

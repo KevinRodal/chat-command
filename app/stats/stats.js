@@ -4,6 +4,7 @@ export default function(action, user) {
 
 	var actions = {
 		skillrating: stats.getSkillRating,
+		mostplayedheroes: stats.topHeroes,
 		leastplayedhero: stats.getLeastPlayedHero,
 		winlosstie: stats.getWinLossTie,
 		season: function(){

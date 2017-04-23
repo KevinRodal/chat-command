@@ -35,10 +35,23 @@ module.exports = {
 		}
 
 		if(win != null && loss != null && tie != null) {
-			// message = plurlUsername + ' win-loss for Season ' + season + ' is ' + win + '-' + loss;
 			return win + '-' + loss + '-' + tie;
 		}
 		return null;
+	},
+
+	topHeroes: function(user) {
+		var mostPlayedCount = 3;
+		var topHeroes = user.stats.top_heroes.competitive;
+
+		var message = '';
+		if(topHeroes != null && topHeroes.length >= mostPlayedCount) {
+			for(var i = 0; i < mostPlayedCount; ++i) {
+				message += '  (' + (i+1) + ') ' + topHeroes[i].hero + ': ' + topHeroes[i].played; 
+			}
+		}
+
+		return message;
 	},
 
 	getRandomStat: function(user) {
