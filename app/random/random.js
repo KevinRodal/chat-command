@@ -78,7 +78,30 @@ export default function(action, headers) {
 	}
 
 	function getHeroes() {
-		var heroes = [ "Mercy", "Lucio", "Zenyatta", "Ana" ];
+		var heroes = ['Zarya',
+					  'Roadhog',
+					  'Ana',
+					  'Mercy',
+					  'Reinhardt',
+					  'Lúcio',
+					  'Zenyatta',
+					  'Mei',
+					  'D.Va',
+					  'Winston',
+					  'Junkrat',
+					  'Hanzo',
+					  'Reaper',
+					  'Genji',
+					  'Soldier: 76',
+					  'Tracer',
+					  'Torbjörn',
+					  'Pharah',
+					  'Symmetra',
+					  'McCree',
+					  'Widowmaker',
+					  'Orisa',
+					  'Bastion',
+					  'Sombra' ];
 		return heroes;
 	}
 }

@@ -9,7 +9,7 @@ module.exports = {
 				break;
 			}
 		}
-		var jsonfile = require('jsonfile');
+		var jsonfile = require('jsonfile'); // We probably don't need jsonfile now that I know about require('./file.json');
 		jsonfile.readFile(configFile, function(err, obj) {
 			global.config = obj;
 		});

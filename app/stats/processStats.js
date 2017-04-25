@@ -40,7 +40,7 @@ module.exports = {
 		return null;
 	},
 
-	topHeroes: function(user) {
+	topHeroes: function(user) { // TODO: rename to getTopHeroes
 		var mostPlayedCount = 3;
 		var topHeroes = user.stats.top_heroes.competitive;
 
