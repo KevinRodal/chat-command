@@ -43,10 +43,33 @@ var slothFacts = [
 	"Sloths can be cut http://bit.ly/2oNSY2v"
 ];
 
+var magic8Ball = [
+	"It is certain",
+	"It is decidedly so",
+	"Without a doubt",
+	"You may rely on it",
+	"As I see it, yes",
+	"Most likely",
+	"Outlook good",
+	"Yes",
+	"Signs point to yes",
+	"Reply hazy try again",
+	"Ask again later",
+	"Better not tell you now",
+	"Cannot predict now",
+	"Concentrate and ask again",
+	"Don't count on it",
+	"My reply is no",
+	"My sources say no",
+	"Outlook not so good",
+	"Very doubtful"
+];
+
 module.exports = {
 
 	jokes: jokes,
 	slothFacts: slothFacts,
+	magic8Ball: magic8Ball,
 
 	season: 4,	
 	timeout: 60 * 5, // 5 minutes

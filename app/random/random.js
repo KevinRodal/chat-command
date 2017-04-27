@@ -6,7 +6,8 @@ export default function(action, headers) {
 	var actions = {
 		seagull: getSeagullMessages,
 		heroes: getHeroes,
-		slothfact: getSlothFacts
+		slothfact: getSlothFacts,
+		magic8ball: getMagic8Ball
 	};
 
 	var lowerAction = action.toLowerCase();
@@ -80,6 +81,10 @@ export default function(action, headers) {
 
 	function getSlothFacts() {
 		return constants.slothFacts;
+	}
+
+	function getMagic8Ball() {
+		return constants.magic8Ball;
 	}
 
 	function getHeroes() {
