@@ -5,7 +5,8 @@ export default function(action, headers) {
 
 	var actions = {
 		seagull: getSeagullMessages,
-		heroes: getHeroes
+		heroes: getHeroes,
+		slothfact: getSlothFacts
 	};
 
 	var lowerAction = action.toLowerCase();
@@ -75,6 +76,10 @@ export default function(action, headers) {
 		}		
 
 		return message;
+	}
+
+	function getSlothFacts() {
+		return constants.slothFacts;
 	}
 
 	function getHeroes() {

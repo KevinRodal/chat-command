@@ -28,10 +28,27 @@ var jokes = [
 	composeJoke('Why was Winston disappointed when Ana used her ultimate on him?', 'He thought she said "nanner boost"')
 ];
 
+var slothFacts = [
+	"The prehistoric sloth Megatherium wasn’t small and cute – he was about six or seven metres tall and weighed between four and seven tonnes.",
+	"There are two types of sloth – the two-toed sloth and the slightly smaller and slower three-toed sloth. However, all sloths have three toes. The difference is the two-toed sloth has two fingers on each hand.",
+	"Instead of staying in the trees all the time, sloths also enjoy a dip and are excellent swimmers – they can hold their breath underwater for up to 40 minutes.",
+	"Sloths don’t sweat and have no body odour, which helps them avoid predators.",
+	"While sloths in captivity can sleep for up to 20 hours a day those in the wilds of Central and South America only need eight or nine hours a day – a bit like us.",
+	"Sloths hate eagles. Harpy eagles have such strong eyesight and such strong claws that they can spot a sloth in a tree, swoop in and take it from the branches, killing it instantly.",
+	"Sloths spend almost all of their time in the trees of rainforests and almost always they hang upside down. According to a study carried out by Swansea University, they are able to do this because their internal organs are fixed to the rib cage to stop them weighing down on their lungs.",
+	"Sloths only defecate once a week and it is the only reason they leave the trees for the ground. Well, have you ever tried doing a Number 2 in a tree? Sloths can lose up to a third of their body weight by going to the toilet.",
+	"If your sausage and bacon breakfast is taking a little longer than usual to move its way down your tummy, spare a thought for the poor sloth – it takes him 30 days to digest just one leaf.",
+	"FACT: Sloths are cute. An obvious fact, but a fact nonetheless.",
+	"OSsloth This OSsloth is OSsloth what OSsloth a OSsloth sloth OSsloth looks OSsloth like OSsloth",
+	"Sloths can be cut http://bit.ly/2oNSY2v"
+];
+
 module.exports = {
 
-	season: 4,
 	jokes: jokes,
+	slothFacts: slothFacts,
+
+	season: 4,	
 	timeout: 60 * 5, // 5 minutes
 	jokeDelayTime: 1000 * 10, // 10 seconds
 
