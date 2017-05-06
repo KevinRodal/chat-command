@@ -7,7 +7,7 @@ export default function(action, headers, param) {
 		seagull: getSeagullMessages,
 		heroes: getHeroes,
 		slothfact: getSlothFacts,
-		8ball: getMagic8Ball
+		magic8ball: getMagic8Ball
 	};
 
 	var lowerAction = action.toLowerCase();
@@ -19,9 +19,11 @@ export default function(action, headers, param) {
 	if(getMessageList == null) {
 		return 'The action "' + action + '" was not recognized';
 	}
+
 	var messages = getMessageList();
 	if(isParamHelp(param)) {
-		var help = getHelpMessage(action, messages);
+		var displayAction = convertActionForDisplay(action);
+		var help = getHelpMessage(displayAction, messages);
 		return help;
 	}
 
@@ -129,6 +131,14 @@ export default function(action, headers, param) {
 					  'Bastion',
 					  'Sombra' ];
 		return heroes;
+	}
+
+	function convertActionForDisplay(action) {
+		var displayAction = action;
+		if(action == 'magic8ball') {
+			displayAction = '8ball';
+		}
+		return displayAction;
 	}
 
 	function isParamHelp(param) {
