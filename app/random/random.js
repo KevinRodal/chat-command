@@ -1,4 +1,4 @@
-export default function(action, headers) {
+export default function(action, headers, param) {
 	var utils = require('../utils.js');
 	var constants = require('../constants.js');
 	var request = require('request');
@@ -7,22 +7,26 @@ export default function(action, headers) {
 		seagull: getSeagullMessages,
 		heroes: getHeroes,
 		slothfact: getSlothFacts,
-		magic8ball: getMagic8Ball
+		8ball: getMagic8Ball
 	};
 
 	var lowerAction = action.toLowerCase();
 	if(lowerAction == 'joke') {
-		return getJoke(headers);
+		return getJoke(headers, param);
 	}
 
-	var fAction = actions[lowerAction];
-	if(fAction == null) {
+	var getMessageList = actions[lowerAction];
+	if(getMessageList == null) {
 		return 'The action "' + action + '" was not recognized';
 	}
-	var messages = fAction();
+	var messages = getMessageList();
+	if(isParamHelp(param)) {
+		var help = getHelpMessage(action, messages);
+		return help;
+	}
 
-	var randomIndex = utils.getRandomInt(0, messages.length);
-	return messages[randomIndex];
+	var messageIndex = getIndexForAction(messages, param);
+	return messages[messageIndex];
 
 	function getSeagullMessages() {
 		var messages = [
@@ -40,23 +44,35 @@ export default function(action, headers) {
 		return messages;
 	}
 
-	function getJoke(headers) {
+	function getJoke(headers, param) {
 		var jokes = constants.jokes;
 
-		var randomIndex = utils.getRandomInt(0, jokes.length);
-		var joke = jokes[randomIndex];
+		if(isParamHelp(param)) {
+			var helpMsg = getHelpMessage('joke', jokes);
+			console.log(helpMsg);
+			return helpMsg;
+		}
+
+		var jokeIndex = getIndexForAction(jokes, param);
+		var joke = jokes[jokeIndex];
 
 		var callerParamString = headers['nightbot-user'];
-		var callerParams = utils.parseHeaderValues(callerParamString);
+
+		var callerParams = null;
+		if(callerParamString != null) {
+			callerParams = utils.parseHeaderValues(callerParamString);
+		}
 
 		var message = joke.question;
 		var answer = joke.answer;
 		
-		var displayName = callerParams.displayName;
-		if(displayName != null) {
-			message = '@' + displayName + ' ' + message;
-			answer = '@' + displayName + ' ' + answer;
-		}
+		if(callerParams != null) {
+			var displayName = callerParams.displayName;
+			if(displayName != null) {
+				message = '@' + displayName + ' ' + message;
+				answer = '@' + displayName + ' ' + answer;
+			}
+		}	
 
 		var nightbotPostBack = headers['nightbot-response-url'];
 		if(nightbotPostBack != null) {
@@ -113,5 +129,32 @@ export default function(action, headers) {
 					  'Bastion',
 					  'Sombra' ];
 		return heroes;
+	}
+
+	function isParamHelp(param) {
+		var trimmed = param.trim();
+		var lower = trimmed.toLowerCase();
+		return lower == 'help';
+	}
+
+	function getHelpMessage(action, messages) {
+		if(!Array.isArray(messages)) {
+			return 'Whoops! >.>';
+		}
+
+		var length = messages.length;
+		var message = 'usage: !' + action + ' [1-' + length + ', omit for random]';
+		return message;
+	}
+
+	function getIndexForAction(messages, param) {
+		var jokeIndex = utils.getRandomInt(0, messages.length);
+		var paramInt = parseInt(param, 10);
+		if(paramInt != NaN) {
+			if(paramInt > 0 && paramInt <= messages.length) {
+				jokeIndex = paramInt - 1;
+			}			
+		}
+		return jokeIndex;
 	}
 }
