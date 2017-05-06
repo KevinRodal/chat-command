@@ -7,6 +7,7 @@ export default function(action, user) {
 		mostplayedheroes: stats.topHeroes,
 		leastplayedhero: stats.getLeastPlayedHero,
 		winlosstie: stats.getWinLossTie,
+		randomstat: stats.getRandomStat,
 		season: function(){
 			return 'Season ' + constants.season;
 		}

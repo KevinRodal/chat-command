@@ -1,3 +1,4 @@
 {
-	"overwatch_api_url": "http://localhost:3000"
+	"overwatch_api_url": "http://localhost",
+	"overwatch_api_port": "3000"
 }
