@@ -142,6 +142,9 @@ export default function(action, headers, param) {
 	}
 
 	function isParamHelp(param) {
+		if(param == null || param == undefined) {
+			return false;
+		}
 		var trimmed = param.trim();
 		var lower = trimmed.toLowerCase();
 		return lower == 'help';
