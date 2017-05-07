@@ -3,6 +3,8 @@ export default function(action, headers, param) {
 	var constants = require('../constants.js');
 	var request = require('request');
 
+	// TODO: Add ability to not allow random/help
+	// TODO: Add wrapper function that can put 'slothfact #1' or '@FuzzyCevin Magic 8 Ball says -> ((( {message} )))'
 	var actions = {
 		seagull: getSeagullMessages,
 		heroes: getHeroes,
