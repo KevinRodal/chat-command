@@ -12,11 +12,11 @@ test('processStats.getSkillRating(user)', function (t) {
 });
 
 test('processStats.getWinLossTie(user)', function (t) {
-	const expectedWinLosstie = '23-23-1';
+	const expectedWinLossTie = '23-23-1';
 	t.plan(2);
 	t.equal(typeof stats.getWinLossTie, 'function', 'stats.getWinLossTie should be a function');
 	var winLossTie = stats.getWinLossTie(user);
-	t.equal(winLossTie, expectedWinLosstie);
+	t.equal(winLossTie, expectedWinLossTie);
 });
 
 test('processStats.topHeroes(user)', function (t) {

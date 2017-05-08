@@ -3,3 +3,4 @@ logs/
 docs/
 .DS_Store
 config/local.config
+npm-debug.log
